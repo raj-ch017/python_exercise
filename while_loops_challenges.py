@@ -1,0 +1,307 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[5]:
+
+
+#Challenges 045
+
+"""
+Set the total to 0 to start with. While the total is 50
+or less, ask the user to input a number. Add that 
+number to the total and print the message:
+
+    "The total is [total]".
+    
+Stop the loop when the total is over 50.
+"""
+
+total = 0
+
+while total <= 50:
+    
+    user_in = int(input("Enter a number: "))
+    
+    total += user_in
+    
+    print("The total is {}.".format(total))
+
+
+# In[8]:
+
+
+#Challenge 046
+
+"""
+Ask the user to enter a number. Keep asking until they
+enter a value over 5 and then display the message:
+
+    "The last number you entered was a [number]"
+    
+and stop the program.
+"""
+
+user_in = int(input("Enter a number: "))
+
+if user_in <= 5:
+    while user_in <= 5:
+        user_in = int(input("Enter a number: "))
+        
+        if user_in > 5:
+            print("The last number you entered was a {}".format(user_in))
+            break
+            
+else:
+    print("The last number you entered was a {}".format(user_in))
+
+
+# In[12]:
+
+
+#Challenge 047
+
+"""
+Ask the user to enter a number and then enter another
+number. Add these two numbers together and ask if they
+want to add another number.
+
+If they enter "y", ask them to enter another number and
+keep adding numbers until they do not answer "y".
+
+Once the loop has stopped, display the total.
+"""
+
+total = 0
+
+num1 = int(input("Enter a number: "))
+num2 = int(input("Enter another number: "))
+
+total = num1 + num2
+
+user_choice = input("Do you want to add another number? (Y/N): ").upper()
+
+if user_choice == "Y":
+    
+    while user_choice == "Y":
+        user_num = int(input("Enter another number: "))
+        total += user_num
+        
+        user_choice = input("Do you want to add another number? (Y/N): ").upper()
+        
+        if user_choice == "N":
+            print("Total: {}".format(total))
+            break
+        
+elif user_choice == "N":
+    print("Total: {}".format(total))
+
+
+# In[14]:
+
+
+#Challenge 048
+
+"""
+Ask for the name of somebody the user wants to invite
+to a party.
+
+After this, display the message:
+
+    '[name] has now been invited' 
+    
+and add 1 to the count. Then ask if they want to invite
+somebody else.
+
+Keep repeating this until they no longer want to invite
+anyone else to the party and then display how many
+people they have coming to the party.
+"""
+
+count = 0
+
+user_in = input("Enter the name of the person to be invited: ")
+print("{} has now been invited.".format(user_in))
+count += 1
+
+user_choice = input("Would you like to invite someone else?").upper()
+
+
+if user_choice == "Y":
+    
+    while user_choice == "Y":
+        user_in = input("Enter the name of the person to be invited: ")
+        print("{} has now been invited.".format(user_in))
+        count += 1
+
+        user_choice = input("Would you like to invite someone else?").upper()
+
+        if user_choice == "N":
+            print("You have invited {} people to the party.".format(count))
+            break
+
+elif user_choice == "N":
+    print("You have invited {} people to the party.".format(count))
+    
+else:
+    print("Invalid input!")
+
+
+# In[27]:
+
+
+#Challenge 049
+
+"""
+Create a variable called compnum and set the value to 50.
+
+Ask the user to enter a number. While their guess is
+not the same as the compnum value, tell them if their
+guess is too low or too high and ask them to have
+another guess.
+
+If they enter the same value as compnum, display:
+
+    'Well done, you took [count] attempts.'
+"""
+
+import random
+
+compnum = random.randint(0,50)
+count = 0
+
+user_in = int(input("Enter a number: "))
+count += 1
+
+if user_in == compnum:
+    print("Well done, you took {} attempts.".format(count))
+    
+else:
+    
+    while user_in != compnum:
+        
+        if user_in > compnum:
+            print("Your guess is too high. Try again!")
+
+        elif user_in < compnum:
+            print("Your guess is too low. Try again!")
+            
+        user_in = int(input("Enter another number: "))
+        count += 1
+        
+        if user_in == compnum:
+            print("Well done, you took {} attempts".format(count))
+            break
+
+
+# In[34]:
+
+
+#Challenge 050
+
+"""
+Ask the user to enter a number between 10 and 20.
+
+If they enter a value under 10, display the message:
+
+    "Too low"
+    
+and ask them to try again. If they enter a value above
+20, display:
+
+    "Too high"
+    
+and ask them to try again. Keep repeating this until
+they enter a value that is between 10 and 20 and 
+then display the message:
+
+    "Thank you"
+"""
+
+user_in = int(input("Enter a number between 10 and 20: "))
+
+if user_in in range(10,21):
+    print("Thank you")
+    
+else:
+    
+    while user_in not in range(10,21):
+        if user_in < 10:
+            print("Too low")
+
+        elif user_in > 20:
+            print("Too high")
+
+        user_in = int(input("Enter a number between 10 and 20: "))
+
+        if user_in in range(10,21):
+            print("Thank you")
+            break
+
+
+# In[38]:
+
+
+#Challenge 051
+
+"""
+Using the song '10 green bottles', display the lines:
+
+    "There are [num] green bottles hanging on the wall,
+    and if 1 green bottle should accidentally fall"
+    
+Then ask the question: 
+
+    "How many green bottles will be hanging on the wall?"
+    
+If the user answers correctly, display the message:
+
+    "There will be [num] green bottles hanging on the wall"
+    
+If they answer incorrectly, display the message 'No, try again'
+until they get it right.
+
+When the number of green bottles get down to 0, display
+the message 'There are no more green bottles hanging on the wall'
+"""
+
+def green_bottle():
+    
+    count = 10
+    print("I am running!")
+    
+    while count > 0:
+        
+        print("There are {} green bottles on the wall, and if 1 should accidentally fall".format(count))
+        user_in = int(input("How many bottles will be hanging on the wall?: "))
+        count -= 1
+        print()
+        
+        if user_in != count:
+            
+            while user_in != count:
+                print("No, try again")
+                user_in = int(input("How many bottles will be hanging on the wall?: "))
+                
+                if user_in == count:
+                    break
+                
+        if count == 0:
+            print("There are no more green bottles hanging on the wall.")
+            break
+        
+
+        
+green_bottle()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
