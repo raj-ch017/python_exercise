@@ -1,0 +1,313 @@
+#!/usr/bin/env python
+# coding: utf-8
+# author: @raj-ch017
+
+# In[5]:
+
+
+#Challenges 069
+
+"""
+Create a tuple containing the names of five countries and display
+the whole tuple. Ask the user to enter one of the countries that
+have been shown to them and then display the index number of 
+that item in the tuple.
+"""
+
+country_tup = ("Australia","Netherlands","Germany","France","Norway")
+
+print(country_tup)
+
+user_in = input("Select a country from the list: ")
+
+print("The position of {} in the tuple is: {}".format(user_in,1 + country_tup.index(user_in)))
+
+
+# In[ ]:
+
+
+
+
+
+# In[10]:
+
+
+#Challenge 070
+
+"""
+Add to program 069 to ask the user to enter a number and display
+the country in that position.
+"""
+
+
+country_tup = ("Australia","Netherlands","Germany","France","Norway")
+
+print(country_tup)
+
+user_in = int(input("Enter a number for country: "))
+
+if user_in in range(0,len(country_tup)):
+    country = country_tup[user_in]
+    print("Country located at position {} is {}".format(user_in,country))
+    
+else:
+    print("Invalid Input!")
+
+
+# In[13]:
+
+
+#Challenge 071
+
+"""
+Create a list of two sports. Ask the user what their favourite 
+sport is and add this to the end of the list.
+Sort the list and display it.
+"""
+
+sport_list = ["football","cricket"]
+
+user_in = input("Enter your favourite sport: ")
+
+if user_in not in sport_list:
+    sport_list.append(user_in)
+    sport_list.sort()
+    print(sport_list)
+else:
+    sport_list.sort()
+    print(sport_list)
+
+
+# In[17]:
+
+
+#Challenge 072
+
+"""
+Create a list of six school subjects. Ask the user which of these
+subjects they don't like. Delete the subject they have chosen from
+the list before you display the list again.
+"""
+
+subject_list = ["Mathematics","Chemistry","Physics","Biology","English","Social Science"]
+
+print(subject_list)
+
+user_in = input("Which is the subject disliked by you: ")
+
+subject_list.remove(user_in)
+print(subject_list)
+
+
+# In[8]:
+
+
+#Challenge 073
+
+"""
+Ask the user to enter four of their favourite foods and store them
+in a dictionary so that they are indexed with numbers starting
+from 1.
+Display the dictionary in full, showing the index number and the
+item. Ask them which they want to get rid of and remove it from 
+the list. Sort the remaining data and display the dictionary.
+"""
+
+food_dict = {}
+
+for k in range(1,5):
+    food = input("Enter your favourite food number {}: ".format(k))
+    food_dict[k] = food
+    
+food_dict
+
+
+# In[9]:
+
+
+
+rid = input("Which item do you want to remove: ")
+rid_id = list(food_dict.values()).index(rid)
+
+del food_dict[rid_id + 1]
+
+food_dict
+
+
+# In[14]:
+
+
+#Challenge 074
+
+"""
+Enter a list of ten colours. Ask the user for a starting number
+between 0 and 4 and an end number between 5 and 9.
+Display the list for those colors between the start and end
+numbers the user input.
+"""
+
+color_list = ["grey","white","red","blue","green","orange","yellow","pink","black","brown"]
+
+start_num = int(input("Enter a number between 0 and 4: "))
+end_num = int(input("Enter a number between 5 and 9: "))
+
+color_list[start_num:end_num+1]
+
+
+# In[19]:
+
+
+#Challenge 075
+
+"""
+Create a list of four three-digit numbers. Display the list to
+the user, showing each item from the list on a seperate line.
+Ask the user to enter a three-digit number. 
+If the number they have typed in matches one in the list, display
+the position of that number in the list, otherwise display the
+message: "That is not in the list"
+"""
+
+num_list = [111,222,555,777]
+
+for ele in num_list:
+    print(ele)
+
+user_num = int(input("Enter a three-digit number: "))
+
+if user_num in num_list:
+    print("{} is located at position {}".format(user_num,num_list.index(user_num)))
+else:
+    print("{} is not in the list.".format(user_num))
+
+
+# In[21]:
+
+
+#Challenge 076
+
+"""
+Ask the user to enter the names of three people they want to invite
+to a party and store them in a list. 
+After they have entered all three names, ask them if they want to 
+add another.
+If they do, allow them to add more names until they answer 'no'.
+When they answer 'no', display how many people they have invited
+to the party.
+"""
+
+party_list = []
+
+for j in range(3):
+    name = input("Enter the name of the person: ")
+    party_list.append(name)
+    
+user_in = input("Do you want to add another name? ").lower()
+
+while user_in != "no":
+    name = input("Enter the name of the person: ")
+    party_list.append(name)
+    user_in = input("Do you want to add another name? (yes/no) ").lower()
+
+print("You have invited {} people to the party!".format(len(party_list)))
+
+
+# In[22]:
+
+
+#Challenge 077
+
+"""
+Change the program 076 so that once the user has completed their 
+list of names, display the full list and ask them to type in one
+of the names on the list.
+Display the position of that name in the list. Ask the user if
+they still want that person to come to the party. 
+If they answer 'no', delete that entry from the list and display
+the list again.
+"""
+
+party_list = []
+
+for j in range(3):
+    name = input("Enter the name of the person: ")
+    party_list.append(name)
+    
+user_in = input("Do you want to add another name? ").lower()
+
+while user_in != "no":
+    name = input("Enter the name of the person: ")
+    party_list.append(name)
+    user_in = input("Do you want to add another name? ").lower()
+
+print("You have invited {} people to the party!".format(len(party_list)))
+
+print(party_list)
+
+user_input = input("Enter the person's name who is invited: ")
+
+print("Position number {} on for list for {}".format(party_list.index(user_input),user_input))
+
+user_say = input("Do you want them to attend the party? (yes/no) ").lower()
+
+if user_say == 'no':
+    party_list.remove(user_input)
+
+print(party_list)
+
+
+# In[24]:
+
+
+#Challenge 078
+
+"""
+Create a list containing the titles of four TV programmes and
+display them on seperate lines.
+Ask the user to enter another show and a position they it 
+inserted into that list.
+Display the list again, showing all five TV programmes in their
+new positions.
+"""
+
+tv_list = ["Brooklyn 99","Chasing Life","Mr. Robot","FRIENDS"]
+
+for ele in tv_list:
+    print(ele)
+    
+user_show = input("Enter the name of the show: ")
+user_pos = int(input("Enter the position to insert the show: "))
+tv_list.insert(user_pos,user_show)
+print(tv_list)
+
+
+# In[26]:
+
+
+#Challenge 079
+
+"""
+Create an empty list called 'nums'.
+Ask the user to enter numbers. After each number is entered, add it
+to the end of the nums list and display the list.
+Once they have entered three numbers, ask them if they still want
+the last number they entered saved.
+If they say 'no', remove the last item from the list. Display
+the list of numbers.
+"""
+
+nums = []
+
+for k in range(3):
+    user_in = int(input("Enter a number: "))
+    nums.append(user_in)
+    
+print(nums)
+
+user_say = input("Do you want the last entered number to be saved? (yes/no) ").lower()
+
+if user_say == "no":
+    nums.pop()
+    print(nums)
+    
+
