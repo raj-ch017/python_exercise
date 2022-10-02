@@ -1,0 +1,181 @@
+#!/usr/bin/env python
+# coding: utf-8
+# author: @raj-ch017
+
+# In[3]:
+
+
+#Challenge 80
+
+"""
+Ask the user to enter their first name and then display the length
+of their first name.
+Then ask for their surname and display the length of their surname.
+Join their first name and surname together with a space between
+and display the result.
+Finally, display the length of their full name (including space)
+"""
+
+user_first = input("Enter your first name: ")
+
+print("Your first name contains {} characters.".format(len(user_first)))
+
+user_last = input("Enter your surname: ")
+
+print("Your surname contains {} characters.".format(len(user_last)))
+
+full_name = user_first + " " + user_last
+
+print("Full name: {}".format(full_name))
+
+print("Your full name contains {} characters.".format(len(full_name)))
+
+
+# In[4]:
+
+
+#Challenge 081
+
+"""
+Ask the user to type in their favourite school subject.
+Display it with '-' after each letter.
+"""
+
+user_in = input("Enter your favourite school subject: ")
+output = ""
+
+for char in user_in:
+    output = output + char + "-"
+    
+print(output)
+
+
+# In[14]:
+
+
+#Challenge 082
+
+"""
+Show the user a line of text from your favourite poem and ask
+for a starting and ending point. Display the characters between
+those two points.
+"""
+
+poem = "Do not go gentle into that good night, rage against the dying of the light"
+
+val = len(poem) - 1
+start = int(input("Enter start point: "))
+end = int(input("Enter end point (less than {}): ".format(val)))
+
+print(poem[start:end+1])
+
+
+# In[18]:
+
+
+#Challenge 083
+
+"""
+Ask the user to type in a word in upper case.
+If they type it in lower case, ask them to try again. 
+Keep repeating this until they type in a message all in uppercase.
+"""
+
+user_in = input("Type a word in upper case: ")
+
+while user_in.islower():
+    print("Try again!")
+    user_in = input("Type a word in upper case: ")
+    
+print("The word you entered: {}".format(user_in))
+
+
+# In[25]:
+
+
+#Challenge 084
+
+"""
+Ask the user to type in their postcode.
+Display the first two letters in uppercase.
+"""
+
+user_in = input("Enter your postcode: ")
+
+output = user_in[:2].upper() + user_in[2:]
+
+print("Your postcode is: {}".format(output))
+
+
+# In[30]:
+
+
+#Challenge 085
+
+"""
+Ask the user to type in their name and then tell them how many
+vowels are in their name.
+"""
+
+vowel_list = ["a","e","i","o","u"]
+
+user_in = input("Enter your fullname: ")
+text = user_in.lower()
+count = 0
+
+for char in text:
+    if char in vowel_list:
+        count += 1
+        
+print("Your name contains {} vowels".format(count))
+
+
+# In[10]:
+
+
+#Challenge 086
+
+"""
+Ask the user to enter a new password. Ask them to enter it again.
+If the two passwords match, display 'Thank you'.
+If the letters are correct but in the wrong case, display the
+message 'They must be in same case'.
+Otherwise, display the message 'incorrect'.
+"""
+
+
+user_in = input("Enter your password: ")
+user_in_check = input("Enter your password: ")
+
+if user_in == user_in_check:
+    print("Thank you!")
+elif user_in.lower() == user_in_check.lower():
+    print("They must be in same case.")
+else:
+    print("Incorrect!")
+# In[6]:
+
+
+#Challenge 087
+
+"""
+Ask the user to type in a word and then display it backwards on
+separate lines.
+For instance, if they type in 'Hello' it should display as shown:
+
+    Enter a word: Hello
+    
+    o
+    l
+    l
+    e
+    H
+"""
+
+user_in = input("Enter a word: ")
+
+out_word = user_in[-1::-1]
+
+for char in out_word:
+    print(char)
+
