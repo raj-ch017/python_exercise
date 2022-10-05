@@ -1,0 +1,51 @@
+# Challenges on Turtle Graphics
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Challenge 060
+
+"""
+Draw a square
+"""
+
+import turtle
+
+for k in range(4):
+    turtle.forward(25)
+    turtle.left(90)
+    
+turtle.showturtle()
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Challenge 061
+
+"""
+Draw a triangle
+"""
+
+import turtle
+
+for k in range(3):
+    turtle.forward(25)
+    turtle.left(120)
+    
+turtle.showturtle()
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Challenge 062
+
+"""
+Draw a circle
+"""
+
+import turtle
+
+for k in range(360):    
+    turtle.forward(1)
+    turtle.left(1)
+    
+turtle.showturtle()
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
